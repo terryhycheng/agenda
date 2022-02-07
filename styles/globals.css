@@ -1,16 +1,40 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-neutral;
+    font-family: "Poppins", sans-serif;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+  .btn {
+    @apply text-primary text-sm font-semibold justify-self-end border-2 border-primary rounded-full px-5 py-1 lg:text-base hover:bg-primary hover:text-white ani;
+  }
 
-* {
-  box-sizing: border-box;
+  .btn2 {
+    @apply text-white bg-primary text-sm font-semibold justify-self-end border-2 border-primary rounded-full px-5 py-1 lg:text-base hover:bg-neutral hover:text-primary ani;
+  }
+
+  .ctn {
+    @apply container mx-auto px-4 lg:px-10;
+  }
+
+  .subtitle {
+    @apply text-4xl font-bold text-primary;
+  }
+
+  .inner-shadow {
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ani {
+    @apply transform transition-all duration-300;
+  }
+
+  .minHeight {
+    min-height: calc(100vh - 150px);
+  }
 }
