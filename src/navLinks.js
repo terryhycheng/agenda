@@ -9,15 +9,15 @@ const links = [
   },
   {
     title: "Projects",
-    link: "#",
+    link: "/projects",
   },
   {
     title: "News",
-    link: "#",
+    link: "/news",
   },
   {
     title: "Contact",
-    link: "#",
+    link: "/contact",
   },
 ];
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 const TeamHero = () => {
   return (
     <>
-      <div className="grid grid-cols-2 mt-8 mb-[85px] gap-6 min-h-[55vh] items-center">
+      <div className="grid grid-cols-2 mt-8 mb-[85px] gap-6 min-h-[60vh] items-center">
         <div className="col-span-2 lg:col-span-1 flex flex-col gap-6 my-3 justify-center items-center lg:items-start lg:pr-40">
           <div className="relative">
             <h2 className="mb-8 text-base space-x-2 text-center lg:text-left">
