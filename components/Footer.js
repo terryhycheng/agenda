@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         <ul className="grid grid-cols-4 lg:grid-cols-1 lg:grid-rows-4 gap-2 flex-grow">
           {links.map((link) => (
-            <li className="hover:text-secondary ani">
+            <li className="hover:text-secondary ani" key={link.title}>
               <Link href={link.link}>{link.title}</Link>
             </li>
           ))}

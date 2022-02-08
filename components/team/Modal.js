@@ -6,19 +6,19 @@ const Modal = ({ image, name, title, intro, closeHandler, socialMedia }) => {
   const getIcon = (key, value) => {
     if (key === "Facebook") {
       return (
-        <a href={value} target="_blank">
+        <a href={value} target="_blank" rel="noreferrer">
           <BsFacebook href={value} />
         </a>
       );
     } else if (key === "Instagram") {
       return (
-        <a href={value} target="_blank">
+        <a href={value} target="_blank" rel="noreferrer">
           <BsInstagram />
         </a>
       );
     } else {
       return (
-        <a href={value} target="_blank">
+        <a href={value} target="_blank" rel="noreferrer">
           <BsLinkedin />
         </a>
       );

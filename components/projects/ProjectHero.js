@@ -42,7 +42,9 @@ const ProjectHero = () => {
           </p>
           <div className="flex gap-4">
             {tags.map((tag) => (
-              <button className="btn text-lg px-6">{tag}</button>
+              <button className="btn text-lg px-6" key={tag}>
+                {tag}
+              </button>
             ))}
           </div>
         </div>

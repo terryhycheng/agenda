@@ -5,7 +5,7 @@ import projects from "../../src/projects";
 const Project = () => {
   const router = useRouter();
   const { projectid } = router.query;
-  const project = null;
+  const project = {};
 
   //Fetching JSON
   for (const i in projects) {

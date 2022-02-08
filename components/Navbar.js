@@ -12,7 +12,7 @@ const Navbar = () => {
             <HiMenuAlt2 className="lg:hidden text-4xl" />
             <ul className="hidden lg:flex space-x-10 text-primary font-bold">
               {links.map((link) => (
-                <li className="hover:text-secondary ani">
+                <li className="hover:text-secondary ani" key={link.title}>
                   <Link href={link.link}>{link.title}</Link>
                 </li>
               ))}
