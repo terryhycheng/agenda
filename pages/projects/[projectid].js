@@ -1,24 +1,18 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import projects from "../../src/projects";
+import { getProjectById } from "../../src/projects";
 
 const Project = () => {
   const router = useRouter();
   const { projectid } = router.query;
-  const project = {};
+  const project = getProjectById(projectid);
 
-  //Fetching JSON
-  for (const i in projects) {
-    if (projects[i].id === projectid) {
-      project = projects[i];
-    }
-  }
   return (
     <>
       <div className="ctn">
         <div className="min-h-[20vh] flex flex-col justify-center items-center">
           <h1 className="font-bold text-5xl text-primary mb-4 text-center">
-            {project.title}
+            {project.innerTitle}
           </h1>
           <p>{project.intro}</p>
         </div>

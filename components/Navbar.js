@@ -19,9 +19,11 @@ const Navbar = () => {
             </ul>
           </div>
           <Image src="/ag-logo.svg" alt="Agenda Logo" width={90} height={60} />
-          <button className="btn text-xs lg:text-base w-3/4 lg:w-1/2">
-            Contact
-          </button>
+          <Link href="/contact">
+            <div className="btn text-xs lg:text-base w-3/4 lg:w-1/2 text-center cursor-pointer">
+              Contact
+            </div>
+          </Link>
         </div>
       </nav>
     </>

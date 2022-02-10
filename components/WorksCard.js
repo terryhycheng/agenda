@@ -1,23 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const WorksCard = () => {
+const WorksCard = ({ info }) => {
   return (
-    <div className="flex flex-col mt-8 mb-5 justify-center items-center cursor-pointer hover:-translate-y-2 ani">
-      <div className="relative h-[250px] w-[250px] lg:w-full rounded-xl overflow-hidden lg:h-[350px]">
-        <Image
-          src="/carnival_main.png"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
+    <Link href={"projects/" + info.id}>
+      <div className="relative flex flex-col mt-8 mb-16 justify-between items-center cursor-pointer hover:-translate-y-2 ani">
+        <div className="relative min-h-[300px] min-w-[250px] lg:min-w-[50px] w-[98%] rounded-xl overflow-hidden lg:min-h-[350px]">
+          <Image
+            src={info.image}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
+        <div className="absolute bottom-[-50px] p-4 mt-[-50px] bg-neutral border-4 border-neutral_var rounded-2xl z-10 w-[100%]">
+          <h3 className="font-bold text-2xl text-primary">{info.title}</h3>
+          <p className="text-sm truncate">{info.intro}</p>
+        </div>
       </div>
-      <div className="p-4 mt-[-50px] bg-neutral border-4 border-neutral_var rounded-2xl z-10">
-        <h3 className="font-bold text-2xl text-primary">AIA Carnival</h3>
-        <p className="text-sm">
-          One of the biggest outdoor events in Hong Kong
-        </p>
-      </div>
-    </div>
+    </Link>
   );
 };
 

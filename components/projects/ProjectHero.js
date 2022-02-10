@@ -6,7 +6,7 @@ const ProjectHero = () => {
 
   return (
     <>
-      <div className="grid mt-8 mb-[85px] gap-6 lg:min-h-[35vh] items-center">
+      <div className="grid mt-8 mb-[70px] gap-6 lg:min-h-[25vh] items-center">
         <div className="pointer-events-none">
           <Image
             src="/curve.svg"

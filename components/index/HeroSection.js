@@ -28,7 +28,7 @@ const HeroSection = () => {
             world.
           </p>
           <div className="flex space-x-3">
-            <Link href="#">
+            <Link href="/team">
               <a className="btn2  min-w-[180px] text-center py-3">About Us</a>
             </Link>
             <Link href="#">

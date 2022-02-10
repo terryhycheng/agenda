@@ -6,7 +6,7 @@ const NewsList = () => {
     <div className="mb-[80px]">
       <div className="flex justify-between">
         <h2 className="subtitle">News</h2>
-        <Link href="#">
+        <Link href="/news">
           <button className="btn">see more</button>
         </Link>
       </div>

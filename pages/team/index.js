@@ -18,7 +18,7 @@ const Team = () => {
               Back to Homepage
             </p>
           </Link>
-          <Link href="/">
+          <Link href="/projects">
             <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
               Our Works
             </p>
