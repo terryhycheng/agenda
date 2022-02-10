@@ -13,7 +13,9 @@ const InnerServices = ({ project }) => {
           </div>
           <div className="col-span-2 md:columns-2 columns-1 md:text-xl text-lg md:leading-loose leading-7 capitalize font-medium">
             {project.services.map((service) => (
-              <li className="text-center md:text-left">{service}</li>
+              <li className="text-center md:text-left" key={service}>
+                {service}
+              </li>
             ))}
           </div>
         </div>
