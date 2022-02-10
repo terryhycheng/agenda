@@ -6,7 +6,7 @@ import links from "../src/navLinks";
 const Navbar = () => {
   return (
     <>
-      <nav className="flex justify-center items-center fixed w-full top-0 z-30 bg-neutral bg-opacity-90 border-b-2">
+      <nav className="flex justify-center items-center fixed w-full top-0 z-30 bg-neutral bg-opacity-90 border-b-2 lg:px-10 px-4">
         <div className="container mx-auto grid grid-cols-3 justify-between items-center py-4 px-2">
           <div>
             <HiMenuAlt2 className="lg:hidden text-4xl" />
@@ -20,9 +20,9 @@ const Navbar = () => {
           </div>
           <Image src="/ag-logo.svg" alt="Agenda Logo" width={90} height={60} />
           <Link href="/contact">
-            <div className="btn text-xs lg:text-base w-3/4 lg:w-1/2 text-center cursor-pointer">
+            <a className="btn text-xs lg:text-base md:w-3/4 lg:w-1/2 text-center cursor-pointer">
               Contact
-            </div>
+            </a>
           </Link>
         </div>
       </nav>

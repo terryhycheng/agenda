@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       <header>
         <Navbar />
       </header>
-      <main className="pt-[10vh] lg:pt-[12vh] overflow-hidden minHeight">
+      <main className="pt-[95px] overflow-hidden minHeight">
         <Component {...pageProps} />
       </main>
       <Footer />

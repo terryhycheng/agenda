@@ -4,8 +4,27 @@ const projects = [
     title: "AIA Carnival",
     innerTitle: "AIA Carnival",
     intro: "Integrated marketing to entice an audience",
+    intro_paragraph: `At Agenda Consulting, we are proud of the long-standing relationships we have with our clients because we believe they are testament to our ability to deliver.
+        
+        One such partnership is with the AIA Carnival, a highly anticipated annual event.
+        
+        We are responsible for all aspects of the Carnival’s marketing strategy and execution. Our objective is to ensure the event maintains high engagement and continues to draw a large audience every year.`,
+
     image: "/projects/carnival_main.png",
-    tags: ["event", "outdoor", "production", "corporate"],
+    tags: ["event", "production", "corporate"],
+    services: [
+      "video production",
+      "graphic design",
+      "above the line media",
+      "digital marketing",
+      "Strategic campaign planning",
+      "Public relations",
+      "Design and branding",
+      "Onsite design production",
+      "Cinematography",
+      "Charitable partnerships",
+      "Community affairs",
+    ],
     isFeature: [true, 1],
     s1_title: "Fugiat qui nisi eiusmod deserunt.",
     s1_paragrah:
@@ -20,6 +39,7 @@ const projects = [
     innerTitle: "Chinese International School",
     intro:
       "Chinese International School - Strategic comms and engagement using video",
+    intro_paragraph: "",
     image: "/projects/cis.png",
     tags: ["markeing", "school", "production"],
     isFeature: [true, 2],
@@ -35,6 +55,7 @@ const projects = [
     title: "The Lion King",
     innerTitle: "The Lion King Musical",
     intro: "Celebrating a milestone with the community",
+    intro_paragraph: "",
     image: "/projects/tlk.jpg",
     tags: ["markeing", "school", "production"],
     isFeature: false,
@@ -51,6 +72,7 @@ const projects = [
     innerTitle: "Hong Kong Observation Wheel",
     intro:
       "Hong Kong Observation Wheel - Full spectrum marketing to relaunch an icon",
+    intro_paragraph: "",
     image: "/projects/wheel.jpg",
     tags: ["markeing"],
     isFeature: [true, 4],
@@ -66,6 +88,7 @@ const projects = [
     title: "AR App for HKOW",
     innerTitle: "Augmented Reality App for the Wheel",
     intro: "Cutting-edge technology and creativity",
+    intro_paragraph: "",
     image: "/projects/ar_app.jpg",
     tags: ["markeing", "production"],
     isFeature: [true, 3],
@@ -81,6 +104,7 @@ const projects = [
     title: "The Grounds",
     innerTitle: "The Grounds",
     intro: "Strategic comms and engagement using video",
+    intro_paragraph: "",
     image: "/projects/The-Grounds-logo.jpg",
     tags: ["markeing", "school", "production"],
     isFeature: false,
@@ -96,6 +120,7 @@ const projects = [
     title: "AIA",
     innerTitle: "AIA Branding",
     intro: "A long standing relationship",
+    intro_paragraph: "",
     image: "/projects/aia.jpg",
     tags: ["markeing", "school", "production"],
     isFeature: false,
@@ -109,8 +134,9 @@ const projects = [
   {
     id: "kellett-school",
     title: "Kellett School",
-    innerTitle: "",
+    innerTitle: "Kellett School",
     intro: "Strategic review, training and fundraising",
+    intro_paragraph: "",
     image: "/projects/ks.jpg",
     tags: ["markeing", "school", "production"],
     isFeature: false,
@@ -126,6 +152,7 @@ const projects = [
     title: "GSIS",
     innerTitle: "German Swiss International School",
     intro: "German Swiss International School",
+    intro_paragraph: "",
     image: "/projects/gsis.jpg",
     tags: ["markeing", "school", "production"],
     isFeature: false,
@@ -141,6 +168,7 @@ const projects = [
     title: "PnK x Great Circus of Europe",
     innerTitle: "ParknShop and the Great Circus of Europe",
     intro: "Bringing magic and mischief to a household name",
+    intro_paragraph: "",
     image: "/projects/circus.jpg",
     tags: ["markeing", "school", "production"],
     isFeature: false,

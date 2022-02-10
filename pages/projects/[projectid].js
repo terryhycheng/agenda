@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getProjectById } from "../../src/projects";
+import InnerHero from "../../components/projects_inner/InnerHero";
+import InnerServices from "../../components/projects_inner/InnerServices";
 
 const Project = () => {
   const router = useRouter();
@@ -10,13 +12,11 @@ const Project = () => {
   return (
     <>
       <div className="ctn">
-        <div className="min-h-[20vh] flex flex-col justify-center items-center">
-          <h1 className="font-bold text-5xl text-primary mb-4 text-center">
-            {project.innerTitle}
-          </h1>
-          <p>{project.intro}</p>
-        </div>
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
+        <InnerHero project={project} />
+      </div>
+      {project.services && <InnerServices project={project} />}
+      <div className="ctn">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
           <Link href="/projects">
             <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
               Back to Projects

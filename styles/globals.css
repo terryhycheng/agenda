@@ -11,7 +11,7 @@
 
 @layer components {
   .btn {
-    @apply text-primary text-sm font-semibold justify-self-end border-2 border-primary rounded-full px-5 py-1 lg:text-base hover:bg-primary hover:text-white ani;
+    @apply text-primary text-base font-semibold justify-self-end border-2 border-primary rounded-full px-5 py-1 lg:text-base hover:bg-primary hover:text-white ani;
   }
 
   .btn2 {
@@ -19,7 +19,7 @@
   }
 
   .ctn {
-    @apply container mx-auto px-4 lg:px-10;
+    @apply container mx-auto px-4 xl:px-20;
   }
 
   .subtitle {

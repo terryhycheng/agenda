@@ -5,7 +5,7 @@ import { BiPlayCircle } from "react-icons/bi";
 const HeroSection = () => {
   return (
     <>
-      <div className="grid grid-cols-2 mt-8 mb-[85px] gap-6 lg:min-h-[65vh] min-h-[70vh] items-center">
+      <div className="grid grid-cols-2 mt-8 mb-[105px] lg:mb-[0px] gap-6 lg:min-h-[700px] min-h-[70vh] items-center">
         <div className="col-span-2 lg:col-span-1 flex flex-col gap-6 my-3 justify-center items-center lg:items-start lg:pr-40">
           <div className="relative">
             <h1 className=" font-bold text-5xl lg:text-6xl text-primary text-center lg:text-left">
