@@ -4,11 +4,13 @@ import { getProjectById } from "../../src/projects";
 import InnerHero from "../../components/projects_inner/InnerHero";
 import InnerServices from "../../components/projects_inner/InnerServices";
 import FeatureCardList from "../../components/projects_inner/FeatureCardList";
+import Gallery from "../../components/projects_inner/Gallery";
 
 const Project = () => {
   const router = useRouter();
   const { projectid } = router.query;
   const project = getProjectById(projectid);
+  const photo_path = `../../public/projects/${project.id}/gallery`;
 
   return (
     <>
@@ -17,8 +19,9 @@ const Project = () => {
       </div>
       {project.services && <InnerServices project={project} />}
       <div className="ctn">
-        <FeatureCardList />
+        {project.features && <FeatureCardList project={project} />}
       </div>
+      <Gallery project={project} />
       <div className="ctn">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
           <Link href="/projects">

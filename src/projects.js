@@ -26,12 +26,30 @@ const projects = [
       "Community affairs",
     ],
     isFeature: [true, 1],
-    s1_title: "Fugiat qui nisi eiusmod deserunt.",
-    s1_paragrah:
-      "Laborum Lorem mollit minim ipsum ullamco id non officia dolore voluptate dolor. Cillum pariatur adipisicing laboris dolore mollit. Deserunt ut laborum aliqua id qui do labore aliquip anim sint tempor sint nisi commodo. Et nulla consequat officia duis esse. Et amet eiusmod esse dolore amet laboris officia. Fugiat sint adipisicing ea cupidatat sint ea eiusmod ea voluptate minim aliquip occaecat mollit.",
-    s2_title: "Eiusmod laborum ea cupidatat aliqua anim anim aute.",
-    s2_paragraph:
-      "Qui dolore cillum in nisi ea fugiat sit. Dolore est reprehenderit esse incididunt quis irure sunt irure velit anim aliquip nisi. Ut laborum exercitation in incididunt culpa.",
+    features: [
+      {
+        title: "Putting the audience first",
+        paragrah: `The demographic for the Carnival is broad. From teenagers and young families to professionals and corporate partners.
+
+          Understanding the audience forms a key component of the marketing and communications strategy.
+          
+          We develop and execute high-reach strategies which incorporate our digital marketing expertise to drive conversion of the most valuable segments.
+          
+          Using eye-catching promotional content which speaks to the diverse audience, we generate hype and anticipation.`,
+        image: "01.png",
+      },
+      {
+        title: "Meaningful results",
+        paragrah: `In our latest strategy, we created impact by putting the audience at the forefront of our materials.
+
+          We designed feel-good content that tugs on the heart strings and showcases the fun and enjoyment the Carnival brings. The integrated strategy encompassed videos, social media, digital banners and publisher content which were curated to tell the stories of the many faces of the AIA Carnival.
+          
+          -  3.2 Mil people reached online
+          -  97% Visitor Satisfaction
+          -  Record attendance, awareness and revenue`,
+        image: "02.png",
+      },
+    ],
   },
   {
     id: "cis",
