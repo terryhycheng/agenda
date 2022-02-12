@@ -23,7 +23,7 @@ const MiniNewsBar = ({ contentAll, setIsChange }) => {
         <div className="flex flex-col">
           {contentAll.length != 0
             ? latestNews(contentAll).map((news) => (
-                <div onClick={() => setIsChange(true)}>
+                <div onClick={() => setIsChange(true)} key={news.id}>
                   <Link href={`/news/${news.id}`}>
                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 cursor-pointer hover:bg-neutral_var ani p-1 rounded-2xl group">
                       <div className="relative w-full h-[130px] overflow-hidden rounded-lg">
