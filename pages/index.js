@@ -5,8 +5,17 @@ import Quote from "../components/index/Quote";
 import Services from "../components/index/Services";
 import Statistcs from "../components/index/Statistcs";
 import Values from "../components/index/Values";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [news, setNews] = useState([]);
+
+  useEffect(async () => {
+    const res = await fetch("/api/news");
+    const data = await res.json();
+    setNews(data);
+  }, []);
+
   return (
     <>
       <div className="ctn">
@@ -20,7 +29,7 @@ export default function Home() {
       </div>
       <Values />
       <div className="ctn">
-        <NewsList />
+        <NewsList news={news} />
       </div>
     </>
   );

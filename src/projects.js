@@ -134,7 +134,7 @@ const projects = [
       "Qui dolore cillum in nisi ea fugiat sit. Dolore est reprehenderit esse incididunt quis irure sunt irure velit anim aliquip nisi. Ut laborum exercitation in incididunt culpa.",
   },
   {
-    id: "aia",
+    id: "aia-branding",
     title: "AIA",
     innerTitle: "AIA Branding",
     intro: "A long standing relationship",
@@ -199,9 +199,17 @@ const projects = [
   },
 ];
 
+const error = [
+  {
+    id: "error",
+    innerTitle: "Project Not Found",
+    intro_paragraph: "You might enter an incorrect link. Please check again.",
+  },
+];
+
 export function getProjectById(id) {
   const project = projects.find((project) => project.id === id);
-  return project || projects[0];
+  return project || error[0];
 }
 
 export function getAllProjects() {

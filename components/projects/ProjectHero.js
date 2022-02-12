@@ -6,7 +6,7 @@ const ProjectHero = () => {
 
   return (
     <>
-      <div className="grid mt-8 mb-[70px] gap-6 lg:min-h-[25vh] items-center">
+      <div className="grid grid-cols-1 mt-8 mb-[70px] gap-6 lg:min-h-[25vh] items-center">
         <div className="pointer-events-none">
           <Image
             src="/curve.svg"
@@ -40,7 +40,7 @@ const ProjectHero = () => {
             duis deserunt aliqua cillum.Consectetur ullamco laborum et ad
             adipisicing.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             {tags.map((tag) => (
               <button className="btn text-lg px-6" key={tag}>
                 {tag}
