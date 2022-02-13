@@ -37,6 +37,8 @@ const Gallery = ({ project }) => {
                       src={allEntries[`${entry}`]}
                       layout="fill"
                       objectFit="cover"
+                      placeholder="blur"
+                      blurDataURL={allEntries[`${entry}`]}
                     />
                   </div>
                 </div>

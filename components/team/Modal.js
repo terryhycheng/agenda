@@ -27,13 +27,19 @@ const Modal = ({ image, name, title, intro, closeHandler, socialMedia }) => {
 
   return (
     <div className="fixed mx-auto top-0 left-0 h-full w-full bg-black bg-opacity-70 shadow-md z-40 flex justify-center items-center">
-      <div className="relative grid lg:grid-cols-2 2xl:h-2/3 2xl:w-2/3 2xl:max-w-[1000px] 2xl:max-h-[550px] xl:h-3/4 xl:w-3/4 h-[75vh] w-[90%] bg-white rounded-2xl bg-opacity-90 justify-center items-between overflow-y-auto">
+      <div className="relative grid lg:grid-cols-2 lg:h-2/3 lg:w-2/3 lg:max-w-[1000px] lg:max-h-[550px] h-[75vh] w-[90%] bg-white rounded-2xl bg-opacity-90 justify-center items-between overflow-y-auto">
         <BiXCircle
           className="absolute text-white text-4xl right-3 top-3 z-50 opacity-50 hover:opacity-100 cursor-pointer lg:text-gray-400"
           onClick={() => closeHandler(false)}
         />
         <div className="relative min-h-[350px] w-full lg:w-[90%]">
-          <Image src={image} layout="fill" objectFit="cover" />
+          <Image
+            src={image}
+            layout="fill"
+            objectFit="cover"
+            placeholder="blur"
+            blurDataURL={image}
+          />
         </div>
         <div className="px-6 flex flex-col justify-center py-8">
           <h2 className="text-3xl font-bold text-primary">{name}</h2>

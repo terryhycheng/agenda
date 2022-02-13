@@ -66,7 +66,13 @@ const NewsSingle = () => {
               {/* -------- CONTENT CONTAINER ------- */}
               <div className="flex flex-col gap-4 col-span-2">
                 <div className="relative w-full h-[300px] lg:h-[50vh] overflow-hidden rounded-2xl mb-4">
-                  <Image src={content.image} layout="fill" objectFit="cover" />
+                  <Image
+                    src={content.image}
+                    layout="fill"
+                    objectFit="cover"
+                    placeholder="blur"
+                    blurDataURL={content.image}
+                  />
                 </div>
                 {content.innerTitle ? (
                   <h3 className="font-bold text-2xl">{content.innerTitle}</h3>

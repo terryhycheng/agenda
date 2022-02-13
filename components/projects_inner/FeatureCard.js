@@ -1,4 +1,5 @@
 import Image from "next/image";
+import parse from "html-react-parser";
 // console.log(entriesArr);
 
 const FeatureCard = ({ project, feature }) => {
@@ -16,7 +17,9 @@ const FeatureCard = ({ project, feature }) => {
           <h1 className="text-3xl font-bold text-primary mb-8">
             {feature.title}
           </h1>
-          <p className="text-sm whitespace-pre-line">{feature.paragrah}</p>
+          <div className="text-sm whitespace-pre-line list-decimal">
+            {parse(`${feature.paragrah}`)}
+          </div>
         </div>
       </div>
     </>

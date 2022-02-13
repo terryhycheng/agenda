@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BiPlayCircle } from "react-icons/bi";
+import parser from "html-react-parser";
 
 const InnerHero = ({ project }) => {
   const seperate = (arr) => {
@@ -38,6 +39,8 @@ const InnerHero = ({ project }) => {
               layout="fill"
               objectFit="cover"
               className="z-10"
+              placeholder="blur"
+              blurDataURL={project.image}
             />
             {/* Decorations */}
             <div className="absolute h-3/4 w-3/4 border-4 rounded-2xl border-primary left-[-50px] bottom-[-50px]"></div>
@@ -54,10 +57,10 @@ const InnerHero = ({ project }) => {
             {/* -------- Title -------- */}
             <h1 className=" font-bold text-5xl lg:text-6xl text-primary text-center lg:text-left mb-4">
               <span className="inline-block relative leading-[1.1]">
-                {seperate(project.innerTitle)[0]}
+                {project.innerTitle && seperate(project.innerTitle)[0]}
                 <div className="absolute h-[60px] w-[60px] rounded-full bg-primary bg-opacity-10 left-[-30px] top-[-20px]"></div>{" "}
                 <span className="inline-block relative">
-                  {seperate(project.innerTitle)[1]}
+                  {project.innerTitle && seperate(project.innerTitle)[1]}
                   <div className="absolute h-[20px] w-[100%] rounded-full bg-[#DFFF9A]  bottom-[-3px] z-[-1]"></div>
                 </span>
               </span>
@@ -65,7 +68,7 @@ const InnerHero = ({ project }) => {
           </div>
           {/* -------- Inner Paragraph -------- */}
           <p className="text-center lg:text-left leading-6 whitespace-pre-line">
-            {project.intro_paragraph}
+            {parser(`${project.intro_paragraph}`)}
           </p>
           {/* -------- Button -------- */}
           {project.video ? (
