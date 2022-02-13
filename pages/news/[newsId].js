@@ -14,28 +14,33 @@ const NewsSingle = () => {
   const { newsId } = router.query;
 
   useEffect(async () => {
-    if (!router.isReady) return <h2 className="font-bold">Loading...</h2>;
     const res = await fetch(`/api/news/${newsId}`);
     const res_2 = await fetch(`/api/news/`);
     const data_2 = await res_2.json();
     const data = await res.json();
-    setContent(data);
+    if (!data.message) {
+      setContent(data);
+    } else {
+      setContent(data.message);
+    }
     setContentAll(
       data_2
         .filter((each) => each.id != newsId)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
     );
     setIsChange(false);
-    {
-      console.log("fetch");
-    }
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    // console.log("fetch");
   }, [router.isReady, isChange]);
 
   const date = new Date(content.date).toDateString();
 
   return (
     <div className="ctn mt-20 min-h-[100vh]">
-      {content.content && content.title ? (
+      {content.title ? (
         <>
           <h2 className="text-base space-x-2 text-center lg:text-left mt-8">
             <Link href="/">
@@ -98,7 +103,7 @@ const NewsSingle = () => {
           </div>
         </>
       ) : (
-        <ErrorMsg />
+        <ErrorMsg content={content} />
       )}
     </div>
   );

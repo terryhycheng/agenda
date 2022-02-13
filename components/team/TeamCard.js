@@ -5,7 +5,11 @@ import Modal from "./Modal";
 const TeamCard = ({ info }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {}, [isOpen]);
+  useEffect(() => {
+    isOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [isOpen]);
 
   return (
     <>

@@ -8,5 +8,5 @@ function getProjectById(id) {
 export default function handler(req, res) {
   getProjectById(req.query.id)
     ? res.status(200).json(getProjectById(req.query.id))
-    : res.status(400).send("No news was found.");
+    : res.status(400).json({ message: "Invalid Link" });
 }
