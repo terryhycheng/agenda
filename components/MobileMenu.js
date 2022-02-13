@@ -14,11 +14,10 @@ const MobileMenu = ({ setIsMenuOpen }) => {
         />
         <ul className=" text-primary font-bold pt-3">
           {links.map((link) => (
-            <div className="cursor-pointer">
+            <div className="cursor-pointer" key={link.title}>
               <Link href={link.link}>
                 <li
                   className="hover:text-secondary ani py-3 text-xl"
-                  key={link.title}
                   onClick={() => {
                     setIsMenuOpen(false);
                   }}
