@@ -33,6 +33,8 @@ const MiniNewsBar = ({ contentAll, setIsChange }) => {
                             layout="fill"
                             objectFit="cover"
                             className="group-hover:scale-110 ani"
+                            placeholder="blur"
+                            blurDataURL={news.image}
                           />
                         </div>
                         <div className="flex flex-col justify-between">

@@ -8,6 +8,8 @@ const Testimonial = () => {
           src="/avatar/zvY94dFUiqKwu1PMVsw5_thatnordicguyredo.jpg"
           layout="fill"
           objectFit="cover"
+          placeholder="blur"
+          blurDataURL="/avatar/zvY94dFUiqKwu1PMVsw5_thatnordicguyredo.jpg"
         />
       </div>
       <p className="mt-8">

@@ -11,6 +11,8 @@ const FeatureCard = ({ project, feature }) => {
             src={`/projects/features/${project.id}/${feature.image}`}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL={`/projects/features/${project.id}/${feature.image}`}
           />
         </div>
         <div className="mt-[300px] p-10 pt-20 border-4 border-netural_var rounded-2xl h-full flex flex-col justify-evenly">

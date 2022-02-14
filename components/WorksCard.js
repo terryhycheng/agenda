@@ -11,6 +11,8 @@ const WorksCard = ({ info }) => {
             layout="fill"
             objectFit="cover"
             quality={100}
+            placeholder="blur"
+            blurDataURL={info.image}
           />
         </div>
         <div className="absolute bottom-[-50px] p-4 mt-[-50px] bg-neutral border-4 border-neutral_var rounded-2xl z-10 w-[100%]">

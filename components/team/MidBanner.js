@@ -21,6 +21,8 @@ const Quote = () => {
                 src="/scm_logo.png"
                 layout="fill"
                 objectFit="contain"
+                placeholder="blur"
+                blurDataURL="/scm_logo.png"
               />
             </div>
             <p className="">

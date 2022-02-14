@@ -60,6 +60,8 @@ const Values = () => {
                   src={logo.image}
                   layout="fill"
                   objectFit="contain"
+                  placeholder="blur"
+                  blurDataURL={logo.image}
                 />
               </div>
             ))}

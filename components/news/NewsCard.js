@@ -11,7 +11,13 @@ const NewsCard = ({ content }) => {
       <Link href={`/news/${content.id}`}>
         <div className="grid grid-cols-1 xl:grid-cols-6 gap-4 hover:bg-neutral_var rounded-2xl  cursor-pointer ani">
           <div className="relative h-[250px] w-full lg:h-[250px] lg:w-[90%] rounded-xl overflow-hidden xl:col-span-2">
-            <Image src={content.image} layout="fill" objectFit="cover" />
+            <Image
+              src={content.image}
+              layout="fill"
+              objectFit="cover"
+              placeholder="blur"
+              blurDataURL={content.image}
+            />
           </div>
           <div className="flex flex-col xl:flex-row justify-evenly xl:col-span-4 xl:items-center gap-4">
             <div className="lg:basis-1/2">

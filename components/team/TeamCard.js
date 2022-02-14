@@ -28,7 +28,14 @@ const TeamCard = ({ info }) => {
         onClick={() => setIsOpen(true)}
       >
         <div className="relative min-h-[350px] w-full rounded-xl overflow-hidden lg:min-h-[350px]">
-          <Image src={info.url} layout="fill" objectFit="cover" quality={100} />
+          <Image
+            src={info.url}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            placeholder="blur"
+            blurDataURL={info.url}
+          />
         </div>
         <div className="p-4 mt-[-50px] bg-neutral border-4 border-neutral_var rounded-2xl z-10 w-full">
           <h3 className="font-bold text-2xl text-primary">{info.name}</h3>

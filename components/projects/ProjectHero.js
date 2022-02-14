@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const ProjectHero = () => {
-  const tags = ["All", "Education", "Corporate"];
-
+const ProjectHero = ({ tags, setFilter }) => {
+  const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
   return (
     <>
-      <div className="grid grid-cols-1 mt-8 mb-[70px] gap-6 lg:min-h-[25vh] items-center">
+      <div className="grid grid-cols-1 lg:mt-8 lg:mb-[40px] mb-[40px] gap-6 lg:min-h-[25vh] items-center">
         <div className="pointer-events-none">
           <Image
             src="/curve.svg"
@@ -42,8 +43,12 @@ const ProjectHero = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             {tags.map((tag) => (
-              <button className="btn text-lg px-6" key={tag}>
-                {tag}
+              <button
+                className="btn text-lg px-6"
+                key={tag}
+                onClick={() => setFilter(tag)}
+              >
+                {capitalize(tag)}
               </button>
             ))}
           </div>

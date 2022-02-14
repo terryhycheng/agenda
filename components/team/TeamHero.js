@@ -44,6 +44,8 @@ const TeamHero = () => {
             layout="fill"
             objectFit="cover"
             className="z-10"
+            placeholder="blur"
+            blurDataURL="/group_photo_1.jpg"
           />
           {/* Decorations */}
           <div className="absolute h-3/4 w-3/4 border-4 rounded-2xl border-primary left-[-50px] bottom-[-50px]"></div>

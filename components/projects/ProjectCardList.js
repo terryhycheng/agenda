@@ -1,16 +1,20 @@
 import ProjectCard from "./ProjectCard";
-import { getAllProjects } from "../../src/projects";
-import { useEffect, useState } from "react";
 import ErrorMsg from "../ErrorMsg";
+import { useEffect, useState } from "react";
 
-const ProjectCardList = () => {
+const ProjectCardList = ({ filter }) => {
   const [projects, setProjects] = useState([]);
 
   useEffect(async () => {
     const res = await fetch("/api/projects");
     const data = await res.json();
+    if (filter !== "all") {
+      data = data.filter((project) =>
+        Object.values(project)[6].includes(filter)
+      );
+    }
     setProjects(data);
-  }, []);
+  }, [filter]);
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 mb-[15vh] gap-4 lg:gap-8 ">
@@ -19,7 +23,9 @@ const ProjectCardList = () => {
           <ProjectCard key={card.title.replace(" ", "")} info={card} />
         ))
       ) : (
-        <ErrorMsg />
+        <div className="col-span-4">
+          <ErrorMsg />
+        </div>
       )}
     </div>
   );

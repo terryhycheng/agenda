@@ -6,7 +6,7 @@ const Contact = () => {
     <>
       <div className="ctn">
         <ContactHero />
-        <div className="grid lg:grid-cols-3 grid-cols-1 md:gap-16">
+        <div className="grid lg:grid-cols-3 grid-cols-1 md:gap-16 mb-20">
           <div className="col-span-2">
             <Map />
           </div>

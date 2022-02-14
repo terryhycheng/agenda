@@ -1,8 +1,6 @@
 import Link from "next/link";
 
-const NewsHero = () => {
-  const tags = ["Descending to date", "Aescending to date"];
-
+const NewsHero = ({ directions, setDirection }) => {
   return (
     <>
       <div className="grid grid-cols-1 mt-8 mb-[40px] gap-6 lg:min-h-[20vh] items-center">
@@ -28,8 +26,12 @@ const NewsHero = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4 items-center">
             Sorting :
-            <select className="rounded-lg text-primary border-2 border-neutral_var bg-opacity-60">
-              {tags.map((tag) => (
+            <select
+              name="direction"
+              className="rounded-lg text-primary border-2 border-neutral_var bg-opacity-60"
+              onChange={(e) => setDirection(e.currentTarget.value)}
+            >
+              {directions.map((tag) => (
                 <option key={tag} value={tag}>
                   {tag}
                 </option>
