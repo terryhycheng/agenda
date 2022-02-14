@@ -26,7 +26,7 @@ const Project = () => {
     <>
       {project_s.title ? (
         <>
-          <div className="ctn">
+          <div className="relative ctn">
             <InnerHero project={project_s} />
           </div>
           {project_s.services && <InnerServices project={project_s} />}

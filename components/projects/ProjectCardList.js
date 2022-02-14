@@ -6,14 +6,19 @@ const ProjectCardList = ({ filter }) => {
   const [projects, setProjects] = useState([]);
 
   useEffect(async () => {
-    const res = await fetch("/api/projects");
-    const data = await res.json();
-    if (filter !== "all") {
-      data = data.filter((project) =>
-        Object.values(project)[6].includes(filter)
-      );
+    try {
+      const res = await fetch("/api/projects");
+      const data = await res.json();
+      if (filter !== "all") {
+        data = data.filter((project) =>
+          Object.values(project)[6].includes(filter)
+        );
+        console.log(data);
+      }
+      setProjects(data);
+    } catch (err) {
+      console.log(err);
     }
-    setProjects(data);
   }, [filter]);
 
   return (

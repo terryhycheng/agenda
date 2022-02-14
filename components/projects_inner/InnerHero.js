@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BiPlayCircle } from "react-icons/bi";
+import { BiPlayCircle, BiXCircle } from "react-icons/bi";
 import parser from "html-react-parser";
+import ReactPlayer from "react-player";
+import { useEffect, useState } from "react";
 
 const InnerHero = ({ project }) => {
+  const [isVideo, setIsVideo] = useState(false);
   const seperate = (arr) => {
     const lastword = arr.split(" ").pop();
     arr = arr
@@ -12,9 +15,29 @@ const InnerHero = ({ project }) => {
       .join(" ");
     return [arr, lastword];
   };
+
+  useEffect(() => {
+    isVideo
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [isVideo]);
+
   return (
     <>
       {/* -------- Breadcrumbs -------- */}
+      {isVideo && ReactPlayer.canPlay(project.video) ? (
+        <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-full h-screen z-30 p-4 bg-black bg-opacity-90">
+          <ReactPlayer url={project.video} controls="true" width="100%" />
+          <button
+            className="btn border-white text-white hover:bg-white hover:text-black text-xl z-50 sm:mt-8"
+            onClick={() => setIsVideo(false)}
+          >
+            Back
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
       {project.title ? (
         <h2 className="mb-8 text-base space-x-2 text-center lg:text-left mt-8">
           <Link href="/">
@@ -72,10 +95,15 @@ const InnerHero = ({ project }) => {
           </p>
           {/* -------- Button -------- */}
           {project.video ? (
-            <button className="btn flex justify-center items-center min-w-[180px] py-3 text-lg mt-6 w-3/4 md:w-1/2">
-              <BiPlayCircle size={20} className="mr-1" />
-              Watch Video
-            </button>
+            <>
+              <button
+                className="btn flex justify-center items-center min-w-[180px] py-3 text-lg mt-6 w-3/4 md:w-1/2"
+                onClick={() => setIsVideo(true)}
+              >
+                <BiPlayCircle size={20} className="mr-1" />
+                Watch Video
+              </button>
+            </>
           ) : (
             ""
           )}

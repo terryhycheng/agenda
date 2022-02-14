@@ -13,6 +13,7 @@ const FeatureCard = ({ project, feature }) => {
             objectFit="cover"
             placeholder="blur"
             blurDataURL={`/projects/features/${project.id}/${feature.image}`}
+            className="hover:scale-105 ani"
           />
         </div>
         <div className="mt-[300px] p-10 pt-20 border-4 border-netural_var rounded-2xl h-full flex flex-col justify-evenly">
