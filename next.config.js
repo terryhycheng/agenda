@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ["www.cnet.com"],
+    domains: ["cdn.sanity.io"],
   },
   reactStrictMode: true,
 };

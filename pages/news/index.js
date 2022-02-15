@@ -1,8 +1,18 @@
 import NewsHero from "../../components/news/NewsHero";
 import NewsList from "../../components/news/NewsList";
 import { useState, useEffect } from "react";
+import { sanityClient } from "../../lib/sanity";
 
-const News = () => {
+const newsQuery = `*[_type == "news"]{
+  date,
+  title,
+  content,
+  slug,
+  featureImg
+}`;
+
+const News = ({ db_news }) => {
+  console.log(db_news);
   const [news, setNews] = useState([]);
   const directions = ["Latest to Oldest", "Oldest to Latest"];
   const [direction, setDirection] = useState("Latest to Oldest");
@@ -49,5 +59,10 @@ const News = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const db_news = await sanityClient.fetch(newsQuery);
+  return { props: { db_news } };
+}
 
 export default News;
