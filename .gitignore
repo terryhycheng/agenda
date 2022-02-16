@@ -6,7 +6,6 @@
 .pnp.js
 
 #sanity
-/studio
 
 # testing
 /coverage
