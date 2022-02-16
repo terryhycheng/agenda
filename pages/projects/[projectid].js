@@ -33,7 +33,7 @@ const Project = ({ singleProject }) => {
             )}
           </div>
           <Gallery gallery={singleProject.gallery} />
-          {singleProject?.otherVideos && <p>Other videos</p>}
+          {/* {singleProject?.otherVideos && <p>Other videos</p>} */}
           <div className="ctn">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
               <Link href="/projects">
