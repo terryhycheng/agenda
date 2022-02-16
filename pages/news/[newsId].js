@@ -101,7 +101,7 @@ export const getStaticPaths = async () => {
   const paths =
     await sanityClient.fetch(`*[_type == "news" && defined(slug.current)]{
     "params":{
-      "newsId": slug.current
+      "newsId" : slug.current
     }
   }`);
   return {

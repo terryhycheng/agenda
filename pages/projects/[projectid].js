@@ -61,7 +61,10 @@ export const getStaticPaths = async () => {
       "projectId": slug.current
     }
   }`);
-  return { paths, fallback: false };
+  return {
+    paths,
+    fallback: false,
+  };
 };
 
 export const getStaticProps = async ({ params }) => {

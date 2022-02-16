@@ -21,7 +21,6 @@ const Projects = ({ category, projects }) => {
   return (
     <>
       <div className="ctn">
-        {console.log(projects)}
         <ProjectHero category={category} />
         <ProjectCardList projects={projects} />
       </div>

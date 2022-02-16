@@ -1,7 +1,5 @@
 import Image from "next/image";
-import parse from "html-react-parser";
 import { PortableText, urlFor } from "../../lib/sanity";
-// console.log(entriesArr);
 
 const FeatureCard = ({ feature }) => {
   return (
