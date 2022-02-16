@@ -1,36 +1,30 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { urlFor } from "../../lib/sanity";
 import GalleryModal from "./GalleryModal";
+import { useDispatch, useSelector } from "react-redux";
+import { setPhotoOpen } from "../../lib/reducers/innerPageSlice";
 
-const GalleryItem = ({ allEntries, entry }) => {
-  const [isModal, setIsModal] = useState(false);
-
-  useEffect(() => {
-    isModal
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset");
-  }, [isModal]);
+const GalleryItem = ({ photo }) => {
+  const dispatch = useDispatch();
+  const isModal = useSelector((state) => state.innerPage.photoValue);
+  const selectedPhoto = useSelector((state) => state.innerPage.photoKey);
 
   return (
     <>
-      {isModal && (
-        <GalleryModal
-          setIsModal={setIsModal}
-          allEntries={allEntries}
-          entry={entry}
-        />
+      {isModal && photo._key === selectedPhoto && (
+        <GalleryModal photo={photo} />
       )}
       <div
         className="relative flex flex-col items-center gap-4 w-[95%] my-3 cursor-pointer"
-        onClick={() => setIsModal(true)}
+        onClick={() => dispatch(setPhotoOpen(photo._key))}
       >
         <div className="relative w-11/12 h-[300px] overflow-hidden rounded-xl">
           <Image
-            src={allEntries[`${entry}`]}
+            src={urlFor(photo).url()}
             layout="fill"
             objectFit="cover"
             placeholder="blur"
-            blurDataURL={allEntries[`${entry}`]}
+            blurDataURL={urlFor(photo).url()}
             className="hover:scale-105 ani"
           />
         </div>

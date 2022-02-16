@@ -1,27 +1,28 @@
 import Image from "next/image";
 import parse from "html-react-parser";
+import { PortableText, urlFor } from "../../lib/sanity";
 // console.log(entriesArr);
 
-const FeatureCard = ({ project, feature }) => {
+const FeatureCard = ({ feature }) => {
   return (
     <>
-      <div className="relative flex flex-col items-center gap-4 lg:w-[85%] w-[95%] my-4">
-        <div className="absolute w-11/12 h-[350px] overflow-hidden rounded-xl shadow-md">
+      <div className="relative flex flex-col items-center gap-4 lg:w-[90%] w-full my-2">
+        <div className="absolute lg:w-11/12 lg:h-[350px] w-full h-[250px] overflow-hidden rounded-xl shadow-md">
           <Image
-            src={`/projects/features/${project.id}/${feature.image}`}
+            src={urlFor(feature.featureImage).url()}
             layout="fill"
             objectFit="cover"
             placeholder="blur"
-            blurDataURL={`/projects/features/${project.id}/${feature.image}`}
+            blurDataURL={urlFor(feature.featureImage).url()}
             className="hover:scale-105 ani"
           />
         </div>
-        <div className="mt-[300px] p-10 pt-20 border-4 border-netural_var rounded-2xl h-full flex flex-col justify-evenly">
-          <h1 className="text-3xl font-bold text-primary mb-8">
-            {feature.title}
+        <div className="lg:mt-[300px] mt-[200px] p-10 px-8 pt-20 border-4 border-netural_var rounded-2xl h-full flex flex-col justify-evenly feature">
+          <h1 className="text-3xl font-bold text-primary">
+            {feature.featureTitle}
           </h1>
           <div className="text-sm whitespace-pre-line list-decimal">
-            {parse(`${feature.paragrah}`)}
+            <PortableText blocks={feature.featureContent} />
           </div>
         </div>
       </div>

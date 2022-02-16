@@ -7,6 +7,10 @@
     @apply bg-neutral;
     font-family: "Poppins", sans-serif;
   }
+  p,
+  ul {
+    @apply mt-2;
+  }
 }
 
 @layer components {
@@ -36,5 +40,17 @@
 
   .minHeight {
     min-height: calc(100vh - 150px);
+  }
+
+  .news h3 {
+    @apply text-xl mb-2 font-bold;
+  }
+
+  .news blockquote {
+    @apply italic text-sm my-2 border-4 border-neutral_var p-6 rounded-2xl;
+  }
+
+  .feature ul {
+    @apply list-disc list-inside;
   }
 }

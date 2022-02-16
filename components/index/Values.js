@@ -45,7 +45,7 @@ const Values = () => {
   return (
     <div className="inner-shadow">
       <div className="mb-[105px] px-6 container mx-auto py-10 lg:py-20">
-        <h2 className="subtitle text-center capitalize md:mb-6">
+        <h2 className="subtitle text-center capitalize md:mb-6 text-4xl lg:text-3xl">
           We Shared Value with our clients
         </h2>
         <div className="flex overflow-hidden py-8 lg:py-12 lg:justify-center">

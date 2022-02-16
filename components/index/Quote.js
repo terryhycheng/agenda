@@ -1,6 +1,6 @@
 const Quote = () => {
   return (
-    <div className="py-20 bg-[url('/background.png')] bg-opacity-60 text-primary mb-[105px]">
+    <div className="py-20 bg-[url('/background.png')] bg-opacity-60 text-primary mb-[55px] lg:mb-[85px]">
       <div className="ctn">
         <h2 className="font-bold text-4xl lg:text-4xl text-center lg:text-left mb-5 uppercase">
           &quot;We believe the best is yet to come.&quot;

@@ -5,17 +5,25 @@ import Quote from "../components/index/Quote";
 import Services from "../components/index/Services";
 import Statistcs from "../components/index/Statistcs";
 import Values from "../components/index/Values";
-import { useEffect, useState } from "react";
+import { sanityClient } from "../lib/sanity";
 
-export default function Home() {
-  const [news, setNews] = useState([]);
+const newsQuery = `*[_type == "news"] | order(date desc)[0...3] {
+  _id,
+  date,
+  title,
+  content,
+  slug,
+  featureImg
+}`;
+const projectQuery = `*[_type == "project" && isFeature ] | order(name asc) {
+  _id,
+  name,
+  intro,
+  slug,
+  mainImage,
+}`;
 
-  useEffect(async () => {
-    const res = await fetch("/api/news");
-    const data = await res.json();
-    setNews(data);
-  }, []);
-
+export default function Home({ db_news, latestWorks }) {
   return (
     <>
       <div className="ctn">
@@ -25,12 +33,18 @@ export default function Home() {
       </div>
       <Quote />
       <div className="ctn">
-        <LatestWorks />
+        <LatestWorks latestWorks={latestWorks} />
       </div>
       <Values />
       <div className="ctn">
-        <NewsList news={news} />
+        <NewsList news={db_news} />
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const db_news = await sanityClient.fetch(newsQuery);
+  const latestWorks = await sanityClient.fetch(projectQuery);
+  return { props: { db_news, latestWorks } };
 }

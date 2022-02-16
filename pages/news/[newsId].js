@@ -1,48 +1,43 @@
-import parse from "html-react-parser";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import ErrorMsg from "../../components/ErrorMsg";
 import Image from "next/image";
 import MiniNewsBar from "../../components/news/MiniNewsBar";
+import { sanityClient } from "../../lib/sanity";
+import { urlFor, PortableText } from "../../lib/sanity";
+import { useEffect } from "react";
 
-const NewsSingle = () => {
-  const [content, setContent] = useState([]);
-  const [contentAll, setContentAll] = useState([]);
-  const [isChange, setIsChange] = useState(false);
-  const router = useRouter();
-  const { newsId } = router.query;
+const singleNewsQuery = `*[_type == "news" && slug.current == $newsId][0]{
+  _id,
+  date,
+  content,
+  featureImg,
+  slug,
+  title
+}`;
 
-  useEffect(async () => {
-    const res = await fetch(`/api/news/${newsId}`);
-    const res_2 = await fetch(`/api/news/`);
-    const data_2 = await res_2.json();
-    const data = await res.json();
-    if (!data.message) {
-      setContent(data);
-    } else {
-      setContent(data.message);
-    }
-    setContentAll(
-      data_2
-        .filter((each) => each.id != newsId)
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-    );
-    setIsChange(false);
-    window.scrollTo({
+const miniNewsQuery = `*[_type == "news" && slug.current != $newsId] | order(date desc)[0...4]{
+  _id,
+  date,
+  featureImg,
+  slug,
+  title
+}`;
+
+const NewsSingle = ({ data, miniNews }) => {
+  const { singleNews } = data;
+  const date = new Date(singleNews?.date).toDateString();
+
+  useEffect(() => {
+    global.window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    // console.log("fetch");
-  }, [router.isReady, isChange]);
-
-  const date = new Date(content.date).toDateString();
+  }, [singleNews]);
 
   return (
-    <div className="ctn mt-20 min-h-[100vh]">
-      {content.title ? (
+    <div className="ctn lg:mt-20 min-h-[100vh]">
+      {singleNews?.title && (
         <>
-          <h2 className="text-base space-x-2 text-center lg:text-left mt-8">
+          <h2 className="text-base space-x-2 text-center lg:text-left lg:mt-8">
             <Link href="/">
               <a className="hover:text-primary ani">Home</a>
             </Link>
@@ -51,13 +46,13 @@ const NewsSingle = () => {
               <a className="hover:text-primary ani">News</a>
             </Link>
             <span> &gt; </span>
-            <span className="font-bold text-primary">{content.title}</span>
+            <span className="font-bold text-primary">{singleNews?.title}</span>
           </h2>
           {/* -------- CONTENT TITLE ------- */}
           <div className="mb-10 mt-4">
             <div className="flex flex-col py-4 lg:py-10 gap-6">
-              <h1 className="font-bold text-5xl text-primary leading-tight">
-                {content.title}
+              <h1 className="font-bold text-4xl lg:text-5xl text-primary leading-tight">
+                {singleNews?.title}
               </h1>
               <p className="opacity-85">{date}</p>
               <hr />
@@ -67,31 +62,20 @@ const NewsSingle = () => {
               <div className="flex flex-col gap-4 col-span-2">
                 <div className="relative w-full h-[300px] lg:h-[50vh] overflow-hidden rounded-2xl mb-4">
                   <Image
-                    src={content.image}
+                    src={urlFor(singleNews?.featureImg).url()}
                     layout="fill"
                     objectFit="cover"
                     placeholder="blur"
-                    blurDataURL={content.image}
+                    blurDataURL={urlFor(singleNews?.featureImg).url()}
                   />
                 </div>
-                {content.innerTitle ? (
-                  <h3 className="font-bold text-2xl">{content.innerTitle}</h3>
-                ) : (
-                  ""
-                )}
-                <div className="text-sm leading-normal">
-                  {parse(`${content.content}`)}
-                </div>
-                {content.quote ? (
-                  <p className="italic p-6 text-sm text-black text-opacity-70 border-neutral_var border-4 bg-neutral_var bg-opacity-30 rounded-2xl">
-                    {parse(`${content.quote}`)}
-                  </p>
-                ) : (
-                  ""
-                )}
+                <PortableText
+                  blocks={singleNews?.content}
+                  className="news text-sm"
+                />
               </div>
               {/* -------- Mini News Bar ------- */}
-              <MiniNewsBar contentAll={contentAll} setIsChange={setIsChange} />
+              <MiniNewsBar miniNews={miniNews} />
             </div>
           </div>
           {/* -------- BUTTONS ------- */}
@@ -108,11 +92,29 @@ const NewsSingle = () => {
             </Link>
           </div>
         </>
-      ) : (
-        <ErrorMsg content={content} />
       )}
     </div>
   );
+};
+
+export const getStaticPaths = async () => {
+  const paths =
+    await sanityClient.fetch(`*[_type == "news" && defined(slug.current)]{
+    "params":{
+      "newsId": slug.current
+    }
+  }`);
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const { newsId } = params;
+  const singleNews = await sanityClient.fetch(singleNewsQuery, { newsId });
+  const miniNews = await sanityClient.fetch(miniNewsQuery, { newsId });
+  return { props: { data: { singleNews }, miniNews } };
 };
 
 export default NewsSingle;

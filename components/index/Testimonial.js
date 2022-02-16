@@ -12,7 +12,7 @@ const Testimonial = () => {
           blurDataURL="/avatar/zvY94dFUiqKwu1PMVsw5_thatnordicguyredo.jpg"
         />
       </div>
-      <p className="mt-8">
+      <p className="mt-8 text-sm">
         “I just wanted to personally thank you for being instrumental in
         involving The Hong Kong Cancer Fund and for making it possible for us to
         have been the beneficiary of the European Carnival. I can only say I was

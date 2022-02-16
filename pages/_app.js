@@ -2,6 +2,8 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { store } from "../lib/store";
+import { Provider } from "react-redux";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,13 +19,15 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <header>
-        <Navbar />
-      </header>
-      <main className="pt-[95px] overflow-hidden minHeight">
-        <Component {...pageProps} />
-      </main>
-      <Footer />
+      <Provider store={store}>
+        <header>
+          <Navbar />
+        </header>
+        <main className="pt-[95px] overflow-hidden minHeight">
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+      </Provider>
     </div>
   );
 }

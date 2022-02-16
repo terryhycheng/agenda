@@ -1,10 +1,10 @@
 import FeatureCard from "./FeatureCard";
 
-const FeatureCardList = ({ project }) => {
+const FeatureCardList = ({ features }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
-      {project.features.map((feature, index) => (
-        <FeatureCard project={project} feature={feature} key={index} />
+    <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+      {features.map((feature, index) => (
+        <FeatureCard feature={feature} key={feature._key} />
       ))}
     </div>
   );

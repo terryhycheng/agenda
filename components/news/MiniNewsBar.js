@@ -1,15 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import { urlFor } from "../../lib/sanity";
 
-const latestNews = (arr) => {
-  const latestArr = [];
-  for (let i in arr) {
-    i < 4 ? latestArr.push(arr[i]) : "";
-  }
-  return latestArr;
-};
-
-const MiniNewsBar = ({ contentAll, setIsChange }) => {
+const MiniNewsBar = ({ miniNews }) => {
   return (
     <div className="lg:block hidden">
       <div className="ml-[10%]">
@@ -21,20 +14,20 @@ const MiniNewsBar = ({ contentAll, setIsChange }) => {
         </div>
         <hr className="border-t-2 my-4" />
         <div className="flex flex-col">
-          {contentAll.length != 0
-            ? latestNews(contentAll).map((news) => (
+          {miniNews?.length
+            ? miniNews.map((news) => (
                 <>
-                  <div onClick={() => setIsChange(true)} key={news.id}>
-                    <Link href={`/news/${news.id}`} scroll={false}>
+                  <div key={news._id}>
+                    <Link href={`/news/${news.slug.current}`} scroll={false}>
                       <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 cursor-pointer hover:bg-neutral_var ani p-1 rounded-2xl group">
                         <div className="relative w-full h-[130px] overflow-hidden rounded-lg">
                           <Image
-                            src={news.image}
+                            src={urlFor(news.featureImg).url()}
                             layout="fill"
                             objectFit="cover"
                             className="group-hover:scale-110 ani"
                             placeholder="blur"
-                            blurDataURL={news.image}
+                            blurDataURL={urlFor(news.featureImg).url()}
                           />
                         </div>
                         <div className="flex flex-col justify-between">
@@ -57,5 +50,4 @@ const MiniNewsBar = ({ contentAll, setIsChange }) => {
     </div>
   );
 };
-
 export default MiniNewsBar;

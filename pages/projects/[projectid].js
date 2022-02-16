@@ -1,39 +1,39 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import InnerHero from "../../components/projects_inner/InnerHero";
 import InnerServices from "../../components/projects_inner/InnerServices";
 import FeatureCardList from "../../components/projects_inner/FeatureCardList";
 import Gallery from "../../components/projects_inner/Gallery";
-import { useEffect, useState } from "react";
-import ErrorMsg from "../../components/ErrorMsg";
+import { sanityClient } from "../../lib/sanity";
 
-const Project = () => {
-  const [project_s, setProject_s] = useState([]);
-  const router = useRouter();
-  const { projectid } = router.query;
+const singleProjectQuery = `*[_type == "project" && slug.current == $projectId ][0]{
+  _id,
+  name,
+  features,
+  gallery,
+  innerTitle,
+  introParagraph,
+  mainImage,
+  mainVideo,
+  otherVideos,
+  services
+}`;
 
-  useEffect(async () => {
-    const res = await fetch(`/api/projects/${projectid}`);
-    const data = await res.json();
-    if (!data.message) {
-      setProject_s(data);
-    } else {
-      setProject_s(data.message);
-    }
-  }, [router.isReady]);
-
+const Project = ({ singleProject }) => {
   return (
     <>
-      {project_s.title ? (
+      {singleProject && (
         <>
           <div className="relative ctn">
-            <InnerHero project={project_s} />
+            <InnerHero project={singleProject} />
           </div>
-          {project_s.services && <InnerServices project={project_s} />}
+          <InnerServices project={singleProject} />
           <div className="ctn">
-            {project_s.features && <FeatureCardList project={project_s} />}
+            {singleProject.features && (
+              <FeatureCardList features={singleProject.features} />
+            )}
           </div>
-          <Gallery project={project_s} />
+          <Gallery gallery={singleProject.gallery} />
+          {singleProject?.otherVideos && <p>Other videos</p>}
           <div className="ctn">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
               <Link href="/projects">
@@ -49,11 +49,27 @@ const Project = () => {
             </div>
           </div>
         </>
-      ) : (
-        <ErrorMsg content={project_s} />
       )}
     </>
   );
+};
+
+export const getStaticPaths = async () => {
+  const paths =
+    await sanityClient.fetch(`*[_type == "project" && defined(slug.current)]{
+    "params":{
+      "projectId": slug.current
+    }
+  }`);
+  return { paths, fallback: false };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const { projectId } = params;
+  const singleProject = await sanityClient.fetch(singleProjectQuery, {
+    projectId,
+  });
+  return { props: { singleProject } };
 };
 
 export default Project;

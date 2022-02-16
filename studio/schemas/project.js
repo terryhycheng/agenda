@@ -35,6 +35,13 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "isFeature",
+      title: "Is this project a feature one?",
+      description: "If yes, it will be displayed on Homepage.",
+      type: "boolean",
+      initialValue: false,
+    },
+    {
       name: "mainImage",
       title: "Main Image",
       type: "image",
@@ -142,6 +149,19 @@ export default {
     },
   ],
   preview: {
-    select: { title: "name", subtitle: "category.title", media: "mainImage" },
+    select: {
+      title: "name",
+      isFeature: "isFeature",
+      category: "category.title",
+      media: "mainImage",
+    },
+    prepare(selection) {
+      const { title, isFeature, category, media } = selection;
+      return {
+        title: title,
+        subtitle: `${category} ${isFeature ? "|  ✅Featured" : ""}`,
+        media: media,
+      };
+    },
   },
 };

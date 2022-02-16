@@ -31,8 +31,10 @@ const Cards = [
 const Services = () => {
   return (
     <div>
-      <h1 className="subtitle text-center">What Do We Help?</h1>
-      <div className="flex flex-col lg:flex-row gap-4 lg:mt-10 lg:mb-10">
+      <h1 className="subtitle text-center text-3xl lg:text-4xl">
+        What Do We Help?
+      </h1>
+      <div className="flex flex-col lg:flex-row gap-3 lg:mt-10 lg:mb-10">
         {Cards.map((card) => (
           <ServiceCard
             key={card.title.replace(/\s+/g, "")}

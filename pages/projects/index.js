@@ -1,19 +1,38 @@
 import ProjectHero from "../../components/projects/ProjectHero";
 import ProjectCardList from "../../components/projects/ProjectCardList";
-import { useState } from "react";
+import { sanityClient } from "../../lib/sanity";
 
-const Projects = () => {
-  const tags = ["all", "education", "corporate", "event", "marketing"];
-  const [filter, setFilter] = useState("all");
+const categoryQuery = `*[_type == "category"]{
+  _id,
+  title
+}`;
+const projectsQuery = `*[_type == "project"] | order(name, asc){
+  _id,
+  mainImage,
+  name,
+  intro,
+  slug,
+  category->{
+    title
+  }
+}`;
 
+const Projects = ({ category, projects }) => {
   return (
     <>
       <div className="ctn">
-        <ProjectHero tags={tags} setFilter={setFilter} />
-        <ProjectCardList filter={filter} />
+        {console.log(projects)}
+        <ProjectHero category={category} />
+        <ProjectCardList projects={projects} />
       </div>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const category = await sanityClient.fetch(categoryQuery);
+  const projects = await sanityClient.fetch(projectsQuery);
+  return { props: { category, projects } };
 };
 
 export default Projects;
