@@ -1,9 +1,19 @@
+import { motion } from "framer-motion";
 import ContactHero from "../../components/contact/ContactHero";
 import Map from "../../components/contact/Map";
+import Loading from "../../components/Loading";
+import fadeInOut from "../../lib/animations/fadeInOut";
 
 const Contact = () => {
   return (
-    <>
+    <motion.div
+      variants={fadeInOut}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="min-h-[80vh] z-0"
+    >
+      <Loading />
       <div className="ctn">
         <ContactHero />
         <div className="grid lg:grid-cols-3 grid-cols-1 md:gap-16 mb-20">
@@ -45,7 +55,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 

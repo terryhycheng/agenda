@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BsArrowRightCircle } from "react-icons/bs";
 import { urlFor, PortableText } from "../../lib/sanity";
 
 const NewsCard = ({ content }) => {
@@ -8,7 +7,7 @@ const NewsCard = ({ content }) => {
 
   return (
     <>
-      <Link href={`/news/${content.slug.current}`}>
+      <Link scroll={false} href={`/news/${content.slug.current}`}>
         <div className="grid grid-cols-1 xl:grid-cols-6 sm:grid-cols-2 gap-4 lg:gap-10 hover:bg-neutral_var rounded-2xl  cursor-pointer ani my-2 first:mt-8 border-neutral_var border-4 overflow-hidden shadow-sm group">
           <div className="relative h-[250px] w-full lg:h-full lg:min-h-[250px] xl:col-span-2">
             <Image

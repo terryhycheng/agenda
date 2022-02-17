@@ -48,7 +48,7 @@ const InnerHero = ({ project }) => {
             <a className="hover:text-primary ani">Home</a>
           </Link>
           <span> &gt; </span>
-          <Link href="/projects">
+          <Link scroll={false} href="/projects">
             <a className="hover:text-primary ani">Projects</a>
           </Link>
           <span> &gt; </span>
@@ -74,9 +74,9 @@ const InnerHero = ({ project }) => {
             {/* Decorations */}
             <div className="absolute h-3/4 w-3/4 border-4 rounded-2xl border-primary left-[-50px] bottom-[-50px]"></div>
             <div className="absolute h-[90%] w-[90%] rounded-2xl bg-primary bg-opacity-10 left-[-30px] bottom-[-30px]"></div>
-            <div className="absolute h-[15%] w-[1%] bg-primary left-[-20px] bottom-[-40px] z-20"></div>
-            <div className="absolute h-[2%] w-[10%] bg-primary top-[-20px] right-[0px] z-20"></div>
-            <div className="absolute h-[60px] w-[60px] rounded-full bg-primary bg-opacity-60 right-[-20px] bottom-[-20px] z-20"></div>
+            <div className="absolute h-[15%] w-[1%] bg-primary left-[-20px] bottom-[-40px] z-10"></div>
+            <div className="absolute h-[2%] w-[10%] bg-primary top-[-20px] right-[0px] z-10"></div>
+            <div className="absolute h-[60px] w-[60px] rounded-full bg-primary bg-opacity-60 right-[-20px] bottom-[-20px] z-10"></div>
           </div>
         ) : (
           ""

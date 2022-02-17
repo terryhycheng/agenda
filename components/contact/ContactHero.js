@@ -7,7 +7,9 @@ const ContactHero = () => {
         <div className="flex flex-col gap-6 my-3 justify-center items-center lg:items-start lg:pr-40">
           <div className="relative">
             <h2 className="mb-8 text-base space-x-2 text-center lg:text-left">
-              <Link href="/">Home</Link>
+              <Link scroll={false} href="/">
+                Home
+              </Link>
               <span> &gt; </span>
               <span className="font-bold text-primary"> Contact</span>
             </h2>

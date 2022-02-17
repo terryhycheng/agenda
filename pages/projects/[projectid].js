@@ -4,6 +4,9 @@ import InnerServices from "../../components/projects_inner/InnerServices";
 import FeatureCardList from "../../components/projects_inner/FeatureCardList";
 import Gallery from "../../components/projects_inner/Gallery";
 import { sanityClient } from "../../lib/sanity";
+import { motion } from "framer-motion";
+import fadeInOut from "../../lib/animations/fadeInOut";
+import Loading from "../../components/Loading";
 
 const singleProjectQuery = `*[_type == "project" && slug.current == $projectId ][0]{
   _id,
@@ -21,35 +24,43 @@ const singleProjectQuery = `*[_type == "project" && slug.current == $projectId ]
 const Project = ({ singleProject }) => {
   return (
     <>
-      {singleProject && (
-        <>
-          <div className="relative ctn">
-            <InnerHero project={singleProject} />
-          </div>
-          <InnerServices project={singleProject} />
-          <div className="ctn">
-            {singleProject.features && (
-              <FeatureCardList features={singleProject.features} />
-            )}
-          </div>
-          <Gallery gallery={singleProject.gallery} />
-          {/* {singleProject?.otherVideos && <p>Other videos</p>} */}
-          <div className="ctn">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
-              <Link href="/projects">
-                <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
-                  Back to Projects
-                </p>
-              </Link>
-              <Link href="/">
-                <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
-                  Back to Homepage
-                </p>
-              </Link>
+      <Loading />
+      <motion.div
+        variants={fadeInOut}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        {singleProject && (
+          <>
+            <div className="relative ctn">
+              <InnerHero project={singleProject} />
             </div>
-          </div>
-        </>
-      )}
+            <InnerServices project={singleProject} />
+            <div className="ctn">
+              {singleProject.features && (
+                <FeatureCardList features={singleProject.features} />
+              )}
+            </div>
+            <Gallery gallery={singleProject.gallery} />
+            {/* {singleProject?.otherVideos && <p>Other videos</p>} */}
+            <div className="ctn">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
+                <Link scroll={false} href="/projects">
+                  <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+                    Back to Projects
+                  </p>
+                </Link>
+                <Link scroll={false} href="/">
+                  <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+                    Back to Homepage
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </>
+        )}
+      </motion.div>
     </>
   );
 };

@@ -26,7 +26,9 @@ const Navbar = () => {
             <ul className="hidden xl:flex space-x-10 text-primary font-bold">
               {links.map((link) => (
                 <li className="hover:text-secondary ani" key={link.title}>
-                  <Link href={link.link}>{link.title}</Link>
+                  <Link href={link.link} scroll={false}>
+                    {link.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -39,7 +41,7 @@ const Navbar = () => {
               objectFit="contain"
             />
           </div>
-          <Link href="/contact">
+          <Link scroll={false} href="/contact">
             <a className="btn text-xs lg:text-base md:w-3/4 lg:w-1/2 text-center cursor-pointer">
               Contact
             </a>

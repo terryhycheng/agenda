@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { setFilter } from "../../lib/reducers/projectSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProjectHero = ({ category }) => {
+  const filter = useSelector((state) => state.project.filterValue);
   const dispatch = useDispatch();
 
   return (
@@ -21,7 +22,9 @@ const ProjectHero = ({ category }) => {
         <div className="flex flex-col lg:gap-6 gap-4 my-3 justify-center items-center lg:items-start lg:pr-40">
           <div className="relative">
             <h2 className="lg:mb-8 mb-4 text-base space-x-2 text-center lg:text-left">
-              <Link href="/">Home</Link>
+              <Link scroll={false} href="/">
+                Home
+              </Link>
               <span> &gt; </span>
               <span className="font-bold text-primary"> Projects</span>
             </h2>
@@ -53,7 +56,9 @@ const ProjectHero = ({ category }) => {
             </button>
             {category?.map((tag) => (
               <button
-                className="btn text-lg px-6"
+                className={`btn text-lg px-6 ${
+                  tag.title === filter && "bg-primary text-neutral"
+                }`}
                 key={tag._id}
                 onClick={() => {
                   dispatch(setFilter(tag.title));

@@ -4,8 +4,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { store } from "../lib/store";
 import { Provider } from "react-redux";
+import { AnimatePresence } from "framer-motion";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <div>
       <Head>
@@ -24,7 +25,18 @@ function MyApp({ Component, pageProps }) {
           <Navbar />
         </header>
         <main className="pt-[95px] overflow-hidden minHeight">
-          <Component {...pageProps} />
+          <AnimatePresence
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() =>
+              global.window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+          >
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
         </main>
         <Footer />
       </Provider>

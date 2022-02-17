@@ -6,6 +6,9 @@ import Services from "../components/index/Services";
 import Statistcs from "../components/index/Statistcs";
 import Values from "../components/index/Values";
 import { sanityClient } from "../lib/sanity";
+import { motion } from "framer-motion";
+import fadeInOut from "../lib/animations/fadeInOut";
+import Loading from "../components/Loading";
 
 const newsQuery = `*[_type == "news"] | order(date desc)[0...3] {
   _id,
@@ -26,19 +29,27 @@ const projectQuery = `*[_type == "project" && isFeature ] | order(name asc) {
 export default function Home({ db_news, latestWorks }) {
   return (
     <>
-      <div className="ctn">
-        <HeroSection />
-        <Services />
-        <Statistcs />
-      </div>
-      <Quote />
-      <div className="ctn">
-        <LatestWorks latestWorks={latestWorks} />
-      </div>
-      <Values />
-      <div className="ctn">
-        <NewsList news={db_news} />
-      </div>
+      <Loading />
+      <motion.div
+        variants={fadeInOut}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <div className="ctn">
+          <HeroSection />
+          <Services />
+          <Statistcs />
+        </div>
+        <Quote />
+        <div className="ctn">
+          <LatestWorks latestWorks={latestWorks} />
+        </div>
+        <Values />
+        <div className="ctn">
+          <NewsList news={db_news} />
+        </div>
+      </motion.div>
     </>
   );
 }

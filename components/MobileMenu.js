@@ -20,7 +20,7 @@ const MobileMenu = () => {
           <ul className=" text-primary font-bold">
             {links.map((link) => (
               <div className="cursor-pointer" key={link.title}>
-                <Link href={link.link}>
+                <Link scroll={false} href={link.link}>
                   <li
                     className="hover:text-secondary ani py-3 text-xl"
                     onClick={() => {

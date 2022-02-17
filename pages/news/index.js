@@ -2,6 +2,9 @@ import NewsHero from "../../components/news/NewsHero";
 import NewsList from "../../components/news/NewsList";
 import { sanityClient } from "../../lib/sanity";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+import fadeInOut from "../../lib/animations/fadeInOut";
+import Loading from "../../components/Loading";
 
 const newsQuery = `*[_type == "news"]{
   _id,
@@ -21,10 +24,18 @@ const News = ({ db_news }) => {
 
   return (
     <>
-      <div className="ctn min-h-screen">
-        <NewsHero />
-        <NewsList news={db_news} />
-      </div>
+      <Loading />
+      <motion.div
+        variants={fadeInOut}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <div className="ctn min-h-screen">
+          <NewsHero />
+          <NewsList news={db_news} />
+        </div>
+      </motion.div>
     </>
   );
 };

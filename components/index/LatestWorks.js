@@ -6,7 +6,7 @@ const LatestWorks = ({ latestWorks }) => {
     <div className="mb-[85px]">
       <div className="flex justify-between">
         <h2 className="subtitle text-3xl lg:text-4xl">Latest Works</h2>
-        <Link href="/projects">
+        <Link scroll={false} href="/projects">
           <button className="btn">see more</button>
         </Link>
       </div>

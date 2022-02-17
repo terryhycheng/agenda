@@ -4,6 +4,9 @@ import MiniNewsBar from "../../components/news/MiniNewsBar";
 import { sanityClient } from "../../lib/sanity";
 import { urlFor, PortableText } from "../../lib/sanity";
 import { useEffect } from "react";
+import fadeInOut from "../../lib/animations/fadeInOut";
+import { motion } from "framer-motion";
+import Loading from "../../components/Loading";
 
 const singleNewsQuery = `*[_type == "news" && slug.current == $newsId][0]{
   _id,
@@ -34,66 +37,71 @@ const NewsSingle = ({ data, miniNews }) => {
   }, [singleNews]);
 
   return (
-    <div className="ctn lg:mt-20 min-h-[100vh]">
-      {singleNews?.title && (
-        <>
-          <h2 className="text-base space-x-2 text-center lg:text-left lg:mt-8">
-            <Link href="/">
-              <a className="hover:text-primary ani">Home</a>
-            </Link>
-            <span> &gt; </span>
-            <Link href="/news">
-              <a className="hover:text-primary ani">News</a>
-            </Link>
-            <span> &gt; </span>
-            <span className="font-bold text-primary">{singleNews?.title}</span>
-          </h2>
-          {/* -------- CONTENT TITLE ------- */}
-          <div className="mb-10 mt-4">
-            <div className="flex flex-col py-4 lg:py-10 gap-6">
-              <h1 className="font-bold text-4xl lg:text-5xl text-primary leading-tight">
-                {singleNews?.title}
-              </h1>
-              <p className="opacity-85">{date}</p>
-              <hr />
-            </div>
-            <div className="grid lg:grid-cols-3">
-              {/* -------- CONTENT CONTAINER ------- */}
-              <div className="flex flex-col gap-4 col-span-2">
-                <div className="relative w-full h-[300px] lg:h-[50vh] overflow-hidden rounded-2xl mb-4">
-                  <Image
-                    src={urlFor(singleNews?.featureImg).url()}
-                    layout="fill"
-                    objectFit="cover"
-                    placeholder="blur"
-                    blurDataURL={urlFor(singleNews?.featureImg).url()}
-                  />
-                </div>
-                <PortableText
-                  blocks={singleNews?.content}
-                  className="news text-sm"
+    <>
+      <Loading />
+      <motion.div
+        className="ctn lg:mt-20 min-h-[100vh]"
+        variants={fadeInOut}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <h2 className="text-base space-x-2 text-center lg:text-left lg:mt-8">
+          <Link scroll={false} href="/">
+            <a className="hover:text-primary ani">Home</a>
+          </Link>
+          <span> &gt; </span>
+          <Link scroll={false} href="/news">
+            <a className="hover:text-primary ani">News</a>
+          </Link>
+          <span> &gt; </span>
+          <span className="font-bold text-primary">{singleNews?.title}</span>
+        </h2>
+        {/* -------- CONTENT TITLE ------- */}
+        <div className="mb-10 mt-4">
+          <div className="flex flex-col py-4 lg:py-10 gap-6">
+            <h1 className="font-bold text-4xl lg:text-5xl text-primary leading-tight">
+              {singleNews?.title}
+            </h1>
+            <p className="opacity-85">{date}</p>
+            <hr />
+          </div>
+          <div className="grid lg:grid-cols-3">
+            {/* -------- CONTENT CONTAINER ------- */}
+            <div className="flex flex-col gap-4 col-span-2">
+              <div className="relative w-full h-[300px] lg:h-[50vh] overflow-hidden rounded-2xl mb-4">
+                <Image
+                  src={urlFor(singleNews?.featureImg).url()}
+                  layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={urlFor(singleNews?.featureImg).url()}
                 />
               </div>
-              {/* -------- Mini News Bar ------- */}
-              <MiniNewsBar miniNews={miniNews} />
+              <PortableText
+                blocks={singleNews?.content}
+                className="news text-sm"
+              />
             </div>
+            {/* -------- Mini News Bar ------- */}
+            <MiniNewsBar miniNews={miniNews} />
           </div>
-          {/* -------- BUTTONS ------- */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
-            <Link href="/news">
-              <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
-                Back to News
-              </p>
-            </Link>
-            <Link href="/">
-              <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
-                Back to Homepage
-              </p>
-            </Link>
-          </div>
-        </>
-      )}
-    </div>
+        </div>
+        {/* -------- BUTTONS ------- */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
+          <Link scroll={false} href="/news">
+            <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+              Back to News
+            </p>
+          </Link>
+          <Link scroll={false} href="/">
+            <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+              Back to Homepage
+            </p>
+          </Link>
+        </div>
+      </motion.div>
+    </>
   );
 };
 

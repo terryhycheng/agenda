@@ -8,7 +8,9 @@ const TeamHero = () => {
         <div className="col-span-2 lg:col-span-1 flex flex-col gap-6 lg:my-3 justify-center items-center lg:items-start lg:pr-40">
           <div className="relative">
             <h2 className="mb-8 text-base space-x-2 text-center lg:text-left">
-              <Link href="/">Home</Link>
+              <Link scroll={false} href="/">
+                Home
+              </Link>
               <span> &gt; </span>
               <span className="font-bold text-primary"> Team</span>
             </h2>
@@ -54,9 +56,9 @@ const TeamHero = () => {
           {/* Decorations */}
           <div className="absolute h-3/4 w-3/4 border-4 rounded-2xl border-primary left-[-50px] bottom-[-50px]"></div>
           <div className="absolute h-[90%] w-[90%] rounded-2xl bg-primary bg-opacity-10 left-[-30px] bottom-[-30px]"></div>
-          <div className="absolute h-[15%] w-[1%] bg-primary left-[-20px] bottom-[-40px] z-20"></div>
-          <div className="absolute h-[2%] w-[10%] bg-primary top-[-20px] right-[0px] z-20"></div>
-          <div className="absolute h-[60px] w-[60px] rounded-full bg-primary bg-opacity-60 right-[-20px] bottom-[-20px] z-20"></div>
+          <div className="absolute h-[15%] w-[1%] bg-primary left-[-20px] bottom-[-40px] z-10"></div>
+          <div className="absolute h-[2%] w-[10%] bg-primary top-[-20px] right-[0px] z-10"></div>
+          <div className="absolute h-[60px] w-[60px] rounded-full bg-primary bg-opacity-60 right-[-20px] bottom-[-20px] z-10"></div>
         </div>
         <div className="pointer-events-none">
           <Image
