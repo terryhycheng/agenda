@@ -30,7 +30,7 @@ const HeroSection = () => {
       ) : (
         ""
       )}
-      <div className="grid grid-cols-2 lg:mt-8 mt-2 mb-[105px] lg:mb-[0px] gap-6 lg:min-h-[700px] min-h-[70vh] items-center">
+      <div className="grid lg:grid-cols-2 lg:mt-8 mt-2 mb-[105px] lg:mb-[0px] gap-6 lg:min-h-[700px] min-h-[70vh] items-center">
         <div className="col-span-2 lg:col-span-1 flex flex-col gap-6 my-3 justify-center items-center lg:items-start lg:pr-[20%]">
           <div className="relative">
             <h1 className=" font-bold text-4xl lg:5xl lg:text-6xl text-primary text-center lg:text-left">
@@ -52,14 +52,14 @@ const HeroSection = () => {
             multi-channel campaigns and keep pace in an ever-changing digital
             world.
           </p>
-          <div className="flex flex-col lg:flex-row space-y-0 w-full lg:items-start items-center gap-4">
+          <div className="flex flex-col xl:flex-row space-y-0 w-full lg:items-start items-center gap-4">
             <Link scroll={false} href="/team">
-              <a className="btn text-neutral bg-primary w-full lg:w-3/4 text-center py-2">
+              <a className="btn text-neutral bg-primary w-full xl:w-1/2 text-center py-2">
                 About Us
               </a>
             </Link>
             <button
-              className="btn flex justify-center items-center w-full py-2"
+              className="btn flex justify-center items-center w-full xl:w-1/2 py-2"
               onClick={() => {
                 dispatch(setVideoOpen());
               }}

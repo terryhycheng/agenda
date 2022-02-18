@@ -15,11 +15,11 @@
 
 @layer components {
   .btn {
-    @apply text-primary text-base font-semibold justify-self-end border-2 border-primary rounded-full px-5 py-1 lg:text-base hover:bg-primary hover:text-white ani;
+    @apply text-primary text-base font-semibold justify-self-end border-2 border-primary rounded-full px-5 lg:text-base hover:bg-primary hover:text-white ani;
   }
 
   .btn2 {
-    @apply text-white bg-primary text-sm font-semibold justify-self-end border-2 border-primary rounded-full px-5 py-1 lg:text-base hover:bg-neutral hover:text-primary ani;
+    @apply text-white bg-primary text-sm font-semibold justify-self-end border-2 border-primary rounded-full px-5 lg:text-base hover:bg-neutral hover:text-primary ani;
   }
 
   .ctn {

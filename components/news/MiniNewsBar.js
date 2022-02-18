@@ -4,7 +4,7 @@ import { urlFor } from "../../lib/sanity";
 
 const MiniNewsBar = ({ miniNews }) => {
   return (
-    <>
+    <div className="lg:block hidden">
       <div className="ml-[10%]">
         <div className="flex justify-between items-center mb-6">
           <h3 className="font-bold text-primary text-3xl">Other News</h3>
@@ -46,7 +46,7 @@ const MiniNewsBar = ({ miniNews }) => {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default MiniNewsBar;

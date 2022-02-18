@@ -1,5 +1,6 @@
 import Testimonials from "./Testimonials";
 import Image from "next/image";
+import DaisyTest from "./DaisyTest";
 
 const logos = [
   {
@@ -68,6 +69,7 @@ const Values = () => {
           </div>
         </div>
         <Testimonials />
+        {/* <DaisyTest /> */}
       </div>
     </div>
   );

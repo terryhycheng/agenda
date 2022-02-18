@@ -33,14 +33,14 @@ const Team = ({ staff }) => {
         <MidBanner />
         <div className="ctn">
           <TeamCardList staff={staff} />
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
+          <div className="flex flex-col xl:flex-row gap-4 xl:gap-10 mb-[65px] xl:my-[90px] xl:w-2/3 mx-auto">
             <Link scroll={false} href="/">
-              <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+              <p className="btn text-md xl:text-base w-full cursor-pointer text-center">
                 Back to Homepage
               </p>
             </Link>
             <Link scroll={false} href="/projects">
-              <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+              <p className="btn text-md xl:text-base w-full cursor-pointer text-center">
                 Our Works
               </p>
             </Link>

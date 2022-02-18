@@ -17,9 +17,7 @@ const LatestWorks = ({ latestWorks }) => {
       >
         {latestWorks?.length &&
           latestWorks.map((project) => (
-            <>
-              <WorksCard key={project._id} project={project} />
-            </>
+            <WorksCard key={project._id} project={project} />
           ))}
       </div>
     </div>
