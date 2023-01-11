@@ -1,6 +1,5 @@
 import links from "../src/navLinks";
 import Link from "next/link";
-import { BiXCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setMenuClose } from "../lib/reducers/mobileMenuSlice";
 
@@ -20,7 +19,7 @@ const MobileMenu = () => {
           <ul className=" text-primary font-bold">
             {links.map((link) => (
               <div className="cursor-pointer" key={link.title}>
-                <Link scroll={false} href={link.link}>
+                <Link scroll={false} href={link.link} passHref>
                   <li
                     className="hover:text-secondary ani py-3 text-xl"
                     onClick={() => {

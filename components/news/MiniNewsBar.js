@@ -18,7 +18,11 @@ const MiniNewsBar = ({ miniNews }) => {
             miniNews.map((news) => (
               <>
                 <div key={news._id}>
-                  <Link href={`/news/${news.slug.current}`} scroll={false}>
+                  <Link
+                    href={`/news/${news.slug.current}`}
+                    scroll={false}
+                    passHref
+                  >
                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 cursor-pointer hover:bg-neutral_var ani p-1 rounded-2xl group">
                       <div className="relative w-full h-[130px] overflow-hidden rounded-lg">
                         <Image
@@ -28,6 +32,7 @@ const MiniNewsBar = ({ miniNews }) => {
                           className="group-hover:scale-110 ani"
                           placeholder="blur"
                           blurDataURL={urlFor(news.featureImg).url()}
+                          alt=""
                         />
                       </div>
                       <div className="flex flex-col justify-between">

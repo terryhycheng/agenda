@@ -23,7 +23,7 @@ const ErrorPage = ({ content }) => {
             />
           </div>
           <h2 className="font-bold text-2xl mb-8">This is an invalid link.</h2>
-          <Link scroll={false} href="/">
+          <Link scroll={false} href="/" passHref>
             <div className="btn cursor-pointer">Back to Homepage</div>
           </Link>
         </div>

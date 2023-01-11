@@ -7,7 +7,7 @@ const NewsCard = ({ content }) => {
 
   return (
     <>
-      <Link scroll={false} href={`/news/${content.slug.current}`}>
+      <Link scroll={false} href={`/news/${content.slug.current}`} passHref>
         <div className="grid grid-cols-1 xl:grid-cols-6 sm:grid-cols-2 gap-4 lg:gap-10 hover:bg-neutral_var rounded-2xl  cursor-pointer ani my-2 first:mt-8 border-neutral_var border-4 overflow-hidden shadow-sm group">
           <div className="relative h-[250px] w-full lg:h-full lg:min-h-[250px] xl:col-span-2">
             <Image
@@ -17,6 +17,7 @@ const NewsCard = ({ content }) => {
               placeholder="blur"
               blurDataURL={urlFor(content.featureImg).url()}
               className="group-hover:scale-105 ani"
+              alt=""
             />
           </div>
           <div className="flex flex-col xl:flex-row justify-evenly xl:col-span-4 xl:items-center gap-2 px-6 pb-6 lg:py-6">

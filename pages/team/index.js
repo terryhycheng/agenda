@@ -34,13 +34,13 @@ const Team = ({ staff }) => {
         <div className="ctn">
           <TeamCardList staff={staff} />
           <div className="flex flex-col xl:flex-row gap-4 xl:gap-10 mb-[65px] xl:my-[90px] xl:w-2/3 mx-auto">
-            <Link scroll={false} href="/">
-              <p className="btn text-md xl:text-base w-full cursor-pointer text-center">
+            <Link scroll={false} href="/" passHref>
+              <p className="btn text-md xl:text-base w-full xl:w-[50%] cursor-pointer text-center">
                 Back to Homepage
               </p>
             </Link>
-            <Link scroll={false} href="/projects">
-              <p className="btn text-md xl:text-base w-full cursor-pointer text-center">
+            <Link scroll={false} href="/projects" passHref>
+              <p className="btn text-md xl:text-base w-full xl:w-[50%] cursor-pointer text-center">
                 Our Works
               </p>
             </Link>

@@ -10,6 +10,7 @@ const Testimonial = () => {
           objectFit="cover"
           placeholder="blur"
           blurDataURL="/avatar/zvY94dFUiqKwu1PMVsw5_thatnordicguyredo.jpg"
+          alt=""
         />
       </div>
       <p className="mt-8 text-sm">

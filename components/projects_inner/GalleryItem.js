@@ -26,6 +26,7 @@ const GalleryItem = ({ photo }) => {
             placeholder="blur"
             blurDataURL={urlFor(photo).url()}
             className="hover:scale-105 ani"
+            alt=""
           />
         </div>
       </div>

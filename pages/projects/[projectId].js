@@ -46,13 +46,13 @@ const Project = ({ singleProject }) => {
             {/* {singleProject?.otherVideos && <p>Other videos</p>} */}
             <div className="ctn">
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
-                <Link scroll={false} href="/projects">
-                  <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+                <Link scroll={false} href="/projects" passHref>
+                  <p className="btn text-md lg:text-base w-full xl:w-[50%] p-4 cursor-pointer text-center content-center">
                     Back to Projects
                   </p>
                 </Link>
-                <Link scroll={false} href="/">
-                  <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+                <Link scroll={false} href="/" passHref>
+                  <p className="btn text-md lg:text-base w-full xl:w-[50%] p-4 cursor-pointer text-center content-center">
                     Back to Homepage
                   </p>
                 </Link>

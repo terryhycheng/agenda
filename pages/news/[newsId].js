@@ -76,6 +76,7 @@ const NewsSingle = ({ data, miniNews }) => {
                   objectFit="cover"
                   placeholder="blur"
                   blurDataURL={urlFor(singleNews?.featureImg).url()}
+                  alt=""
                 />
               </div>
               <PortableText
@@ -89,13 +90,13 @@ const NewsSingle = ({ data, miniNews }) => {
         </div>
         {/* -------- BUTTONS ------- */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
-          <Link scroll={false} href="/news">
-            <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+          <Link scroll={false} href="/news" passHref>
+            <p className="btn text-md lg:text-base w-full p-4 xl:w-[50%] cursor-pointer content-center text-center">
               Back to News
             </p>
           </Link>
-          <Link scroll={false} href="/">
-            <p className="btn text-md lg:text-base w-full p-4 cursor-pointer text-center">
+          <Link scroll={false} href="/" passHref>
+            <p className="btn text-md lg:text-base w-full p-4 xl:w-[50%] cursor-pointer content-center text-center">
               Back to Homepage
             </p>
           </Link>

@@ -21,6 +21,7 @@ const GalleryModal = ({ photo }) => {
             objectFit="contain"
             placeholder="blur"
             blurDataURL={urlFor(photo).url()}
+            alt=""
           />
         </div>
       </div>

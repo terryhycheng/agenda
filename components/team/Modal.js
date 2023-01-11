@@ -20,6 +20,7 @@ const Modal = ({ image, name, title, intro, socialMedia }) => {
             objectFit="cover"
             placeholder="blur"
             blurDataURL={image}
+            alt=""
           />
         </div>
         <div className="px-6 flex flex-col justify-center py-8">

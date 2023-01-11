@@ -13,6 +13,7 @@ const FeatureCard = ({ feature }) => {
             placeholder="blur"
             blurDataURL={urlFor(feature.featureImage).url()}
             className="hover:scale-105 ani"
+            alt=""
           />
         </div>
         <div className="lg:mt-[300px] mt-[200px] p-10 px-8 pt-20 border-4 border-netural_var rounded-2xl h-full flex flex-col justify-evenly feature">

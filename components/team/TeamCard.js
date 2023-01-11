@@ -36,6 +36,7 @@ const TeamCard = ({ staff }) => {
             quality={100}
             placeholder="blur"
             blurDataURL={urlFor(staff?.profilePic).url()}
+            alt=""
           />
         </div>
         <div className="p-4 mt-[-50px] bg-neutral border-4 border-neutral_var rounded-2xl z-10 w-full">
