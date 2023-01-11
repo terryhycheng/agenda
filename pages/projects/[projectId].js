@@ -47,12 +47,12 @@ const Project = ({ singleProject }) => {
             <div className="ctn">
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
                 <Link scroll={false} href="/projects" passHref>
-                  <p className="btn text-md lg:text-base w-full xl:w-[50%] p-4 cursor-pointer text-center content-center">
+                  <p className="btn text-md lg:text-base w-full lg:w-[50%] p-4 cursor-pointer text-center content-center">
                     Back to Projects
                   </p>
                 </Link>
                 <Link scroll={false} href="/" passHref>
-                  <p className="btn text-md lg:text-base w-full xl:w-[50%] p-4 cursor-pointer text-center content-center">
+                  <p className="btn text-md lg:text-base w-full lg:w-[50%] p-4 cursor-pointer text-center content-center">
                     Back to Homepage
                   </p>
                 </Link>
@@ -83,7 +83,7 @@ export const getStaticProps = async ({ params }) => {
   const singleProject = await sanityClient.fetch(singleProjectQuery, {
     projectId,
   });
-  return { props: { singleProject } };
+  return { props: { singleProject }, revalidate: 60 };
 };
 
 export default Project;

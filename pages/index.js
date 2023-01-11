@@ -57,5 +57,5 @@ export default function Home({ db_news, latestWorks }) {
 export async function getStaticProps() {
   const db_news = await sanityClient.fetch(newsQuery);
   const latestWorks = await sanityClient.fetch(projectQuery);
-  return { props: { db_news, latestWorks } };
+  return { props: { db_news, latestWorks }, revalidate: 60 };
 }

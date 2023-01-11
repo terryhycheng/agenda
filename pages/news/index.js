@@ -42,7 +42,7 @@ const News = ({ db_news }) => {
 
 export async function getStaticProps() {
   const db_news = await sanityClient.fetch(newsQuery);
-  return { props: { db_news } };
+  return { props: { db_news }, revalidate: 60 };
 }
 
 export default News;

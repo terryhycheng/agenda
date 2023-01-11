@@ -91,12 +91,12 @@ const NewsSingle = ({ data, miniNews }) => {
         {/* -------- BUTTONS ------- */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 mb-[65px] lg:my-[90px] lg:w-2/3 mx-auto">
           <Link scroll={false} href="/news" passHref>
-            <p className="btn text-md lg:text-base w-full p-4 xl:w-[50%] cursor-pointer content-center text-center">
+            <p className="btn text-md lg:text-base w-full p-4 lg:w-[50%] cursor-pointer content-center text-center">
               Back to News
             </p>
           </Link>
           <Link scroll={false} href="/" passHref>
-            <p className="btn text-md lg:text-base w-full p-4 xl:w-[50%] cursor-pointer content-center text-center">
+            <p className="btn text-md lg:text-base w-full p-4 lg:w-[50%] cursor-pointer content-center text-center">
               Back to Homepage
             </p>
           </Link>
@@ -123,7 +123,7 @@ export const getStaticProps = async ({ params }) => {
   const { newsId } = params;
   const singleNews = await sanityClient.fetch(singleNewsQuery, { newsId });
   const miniNews = await sanityClient.fetch(miniNewsQuery, { newsId });
-  return { props: { data: { singleNews }, miniNews } };
+  return { props: { data: { singleNews }, miniNews }, revalidate: 60 };
 };
 
 export default NewsSingle;

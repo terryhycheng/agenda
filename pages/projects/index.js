@@ -42,7 +42,7 @@ const Projects = ({ category, projects }) => {
 export const getStaticProps = async () => {
   const category = await sanityClient.fetch(categoryQuery);
   const projects = await sanityClient.fetch(projectsQuery);
-  return { props: { category, projects } };
+  return { props: { category, projects }, revalidate: 60 };
 };
 
 export default Projects;
