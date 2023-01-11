@@ -15,13 +15,17 @@ Agenda is one of the previous companies I've worked for and my favorite one. As 
 
 ![Website Preview](public/ag-preview.png)
 
-🔗 Preview URL : [https://agconsulting.vercel.app/](https://agconsulting.vercel.app/)
+### Project Highlights
 
 - ✔️ Created a brand new identity design for the company
 - ✔️ Followed UI/UX workflow from design on `Figma` to development with `NextJS`
 - ✔️ Fully responsive website
 - ✔️ Built with `Sanity`, a headless CMS that can easily manage content
 - ✔️ Deploy on `Vercel` with `NextJS`, which provides a quick and smooth hosting
+
+### Links
+
+🔗 Preview URL : [https://agconsulting.vercel.app/](https://agconsulting.vercel.app/)
 
 🔗 UI Design on Figma: [https://www.figma.com/file/5aqiAkXVVZQxTn0veIkHGj/Agenda?node-id=0%3A1&t=67c9yJPbtLvzjaZe-1](https://www.figma.com/file/5aqiAkXVVZQxTn0veIkHGj/Agenda?node-id=0%3A1&t=67c9yJPbtLvzjaZe-1)
 
